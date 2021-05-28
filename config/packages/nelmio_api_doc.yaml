@@ -1,0 +1,22 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: AutoSave.Main
+            description: Центральный сервис приложения
+            version: 1.0.0
+        components:
+            securitySchemes:
+                Bearer:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        security:
+            - Bearer: [ ]
+    models:
+        names:
+            - { alias: User, type: App\Entity\User }
+            - { alias: UserDto, type: App\Model\UserDto }
+            - { alias: AutoDto, type: App\Model\AutoDto }
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
