@@ -18,7 +18,7 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        // Создание пользователя с ролью ROLE_USER
+        // Создание пользователей с ролью ROLE_USER
         $user = new User();
         $user->setEmail('artem@mail.ru');
         $user->setPassword($this->passwordEncoder->encodePassword(
@@ -40,7 +40,7 @@ class AppFixtures extends Fixture
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user, 'Vika48'));
         $user->setRoles(['ROLE_USER']);
-        $user->setNumberDriver('12345');
+        $user->setNumberDriver('123456');
         $user->setAdressDriver('null');
         $user->setName('Vika');
         $user->setSurname('Polennikova');
@@ -51,21 +51,29 @@ class AppFixtures extends Fixture
         $user->setKBM(1);
         $manager->persist($user);
 
-        // Создание пользователя с ролью ROLE_USER
+        // Создание администратора
+        $user = new User();
+        $user->setEmail('admin@mail.ru');
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user, 'Admin48'));
+        $user->setRoles(['ROLE_SUPER_ADMIN']);
+        $user->setName('Admin');
+        $user->setSurname('Admin');
+        $user->setMidName('Admin');
+        $user->setDateDriver(new \DateTime('2000-01-01 00:00:00'));
+        $manager->persist($user);
+
+        // Создание агента
         $user = new User();
         $user->setEmail('agent@mail.ru');
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user, 'Agent48'));
         $user->setRoles(['ROLE_AGENT']);
-        //$user->setNumberDriver(null);
-        //$user->setAdressDriver(null);
         $user->setName('Artem');
         $user->setSurname('Polennikov');
         $user->setMidName('Andreevich');
-        //$user->setExpDriver(null);
         $user->setDateDriver(new \DateTime('1999-06-06 00:00:00'));
-         /*$user->setGenderDriver(null);
-        $user->setKBM(null);*/
+
         $manager->persist($user);
 
 

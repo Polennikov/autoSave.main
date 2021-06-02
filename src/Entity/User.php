@@ -45,7 +45,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true, unique=true)
      */
     private $number_driver;
 
@@ -95,14 +95,16 @@ class User implements UserInterface
     private $autos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Contract::class, mappedBy="users")
+     * @ORM\OneToMany(targetEntity=RelationDriver::class, mappedBy="users")
      */
-    private $contracts;
+    private $relationDrivers;
+
 
     public function __construct()
     {
         $this->autos = new ArrayCollection();
         $this->contracts = new ArrayCollection();
+        $this->relationDrivers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -343,33 +345,33 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Contract[]
+     * @return Collection|RelationDriver[]
      */
-    public function getContracts(): Collection
+    public function getRelationDrivers(): Collection
     {
-        return $this->contracts;
+        return $this->relationDrivers;
     }
 
-    public function addContract(Contract $contract): self
+    public function addRelationDriver(RelationDriver $relationDriver): self
     {
-        if (!$this->contracts->contains($contract)) {
-            $this->contracts[] = $contract;
-            $contract->setUsers($this);
+        if (!$this->relationDrivers->contains($relationDriver)) {
+            $this->relationDrivers[] = $relationDriver;
+            $relationDriver->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removeContract(Contract $contract): self
+    public function removeRelationDriver(RelationDriver $relationDriver): self
     {
-        if ($this->contracts->removeElement($contract)) {
+        if ($this->relationDrivers->removeElement($relationDriver)) {
             // set the owning side to null (unless already changed)
-            if ($contract->getUsers() === $this) {
-                $contract->setUsers(null);
+            if ($relationDriver->getUsers() === $this) {
+                $relationDriver->setUsers(null);
             }
         }
 
         return $this;
     }
-
+    
 }

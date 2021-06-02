@@ -33,10 +33,6 @@ class UserController extends AbstractController
      *              @OA\Property(
      *                  property="roles",
      *                  type="string"
-     *              ),
-     *              @OA\Property(
-     *                  property="balance",
-     *                  type="string"
      *              )
      *          )
      *   ),
