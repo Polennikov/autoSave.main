@@ -51,6 +51,7 @@ class Contract
 
     /**
      * @ORM\ManyToOne(targetEntity=auto::class, inversedBy="contracts")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $auto;
 
@@ -85,7 +86,7 @@ class Contract
     private $date_end_three;
 
     /**
-     * @ORM\OneToMany(targetEntity=RelationDriver::class, mappedBy="contracts")
+     * @ORM\OneToMany(targetEntity=RelationDriver::class, mappedBy="contracts",orphanRemoval=true)
      */
     private $relationDrivers;
 

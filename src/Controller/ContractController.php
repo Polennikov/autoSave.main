@@ -60,35 +60,52 @@ class ContractController extends AbstractController
      */
     public function index(SerializerInterface $serializer): Response
     {
-        $entityManager  = $this->getDoctrine()->getManager();
-        $userRepository = $entityManager->getRepository(User::class);
-        $user           = $userRepository->findOneBy(['number_driver' => $this->getUser()->getNumberDriver()]);
+        $response = new Response();
+        try {
+            $entityManager  = $this->getDoctrine()->getManager();
+            $userRepository = $entityManager->getRepository(User::class);
+            $user           = $userRepository->findOneBy(['number_driver' => $this->getUser()->getNumberDriver()]);
 
-        $relationRepository = $entityManager->getRepository(RelationDriver::class);
-        $relationAll        = $relationRepository->findBy(['users' => $user]);
+            $relationRepository = $entityManager->getRepository(RelationDriver::class);
+            $relationAll        = $relationRepository->findBy(['users' => $user]);
 
-        foreach ($relationAll as $relation) {
-            $contractRepository = $entityManager->getRepository(Contract::class);
-            $contract           = $contractRepository->findOneBy(['id' => $relation->getContracts()]);
-            $result[]           = [
-                'id'               => $contract->getId(),
-                'date_start'       => $contract->getDateStart(),
-                'date_end'         => $contract->getDateEnd(),
-                'amount'           => $contract->getAmount(),
-                'diagnostic_card'  => $contract->getDiagnosticCard(),
-                'purpose'          => $contract->getPurpose(),
-                'non_limited'      => $contract->getNonLimited(),
-                'status'           => $contract->getStatus(),
-                'auto_vin'         => $contract->getAuto()->getVin(),
-                'agent_id'         => $contract->getAgentId(),
-                'date_start_one'   => $contract->getDateStartOne(),
-                'date_end_one'     => $contract->getDateEndOne(),
-                'date_start_two'   => $contract->getDateStartTwo(),
-                'date_end_two'     => $contract->getDateEndTwo(),
-                'date_start_three' => $contract->getDateStartThree(),
-                'date_end_three'   => $contract->getDateStartThree(),
+            foreach ($relationAll as $relation) {
+                $contractRepository = $entityManager->getRepository(Contract::class);
+                $contract           = $contractRepository->findOneBy(['id' => $relation->getContracts()]);
+                $result[]           = [
+                    'id'               => $contract->getId(),
+                    'date_start'       => $contract->getDateStart(),
+                    'date_end'         => $contract->getDateEnd(),
+                    'amount'           => $contract->getAmount(),
+                    'diagnostic_card'  => $contract->getDiagnosticCard(),
+                    'purpose'          => $contract->getPurpose(),
+                    'non_limited'      => $contract->getNonLimited(),
+                    'status'           => $contract->getStatus(),
+                    'auto_vin'         => $contract->getAuto()->getVin(),
+                    'agent_id'         => $contract->getAgentId(),
+                    'date_start_one'   => $contract->getDateStartOne(),
+                    'date_end_one'     => $contract->getDateEndOne(),
+                    'date_start_two'   => $contract->getDateStartTwo(),
+                    'date_end_two'     => $contract->getDateEndTwo(),
+                    'date_start_three' => $contract->getDateStartThree(),
+                    'date_end_three'   => $contract->getDateStartThree(),
 
+                ];
+            }
+            if ($relationAll == null) {
+                $result = [
+                    'code'    => Response::HTTP_BAD_REQUEST,
+                    'message' => 'Ошибка запроса!',
+                ];
+                $response->setStatusCode(Response::HTTP_BAD_REQUEST);
+            }
+        } catch (\Exception $e) {
+            // Формируем ответ сервера
+            $result = [
+                'code'    => Response::HTTP_BAD_REQUEST,
+                'message' => $e->getMessage(),
             ];
+            $response->setStatusCode(Response::HTTP_BAD_REQUEST);
         }
 
         $response = new Response();
@@ -295,6 +312,7 @@ class ContractController extends AbstractController
 
 
                 $result[] = [
+                    'id'               => $contract->getId(),
                     'date_start'       => $contract->getDateStart(),
                     'date_end'         => $contract->getDateEnd(),
                     'amount'           => $contract->getAmount(),
@@ -488,7 +506,7 @@ class ContractController extends AbstractController
             $response->setStatusCode(Response::HTTP_BAD_REQUEST);
         } else {
             // Получаем существующий курс
-            $Repository = $this->getDoctrine()->getManager();
+            $Repository         = $this->getDoctrine()->getManager();
             $contractRepository = $Repository->getRepository(Contract ::class);
             $contract           = $contractRepository->findOneBy(['id' => $id]);
             // Если курс существует
@@ -508,23 +526,22 @@ class ContractController extends AbstractController
                 $contract->setNonLimited($contractDto->non_limited);
 
                 $contract->setAgentId($contractDto->agent_id);
-              /*  $contract->setDriverOne($contractDto->driver_one);
-                $contract->setDriver_two($contractDto->driver_two);
-                $contract->setDriver_three($contractDto->driver_three);
-                $contract->setDriver_four($contractDto->driver_four);*/
+                /*  $contract->setDriverOne($contractDto->driver_one);
+                  $contract->setDriver_two($contractDto->driver_two);
+                  $contract->setDriver_three($contractDto->driver_three);
+                  $contract->setDriver_four($contractDto->driver_four);*/
 
                 $contract->setDateStartOne(new \DateTime($contractDto->date_start_one));
                 $contract->setDateEndOne(new \DateTime($contractDto->date_end_one));
 
-                if($contractDto->date_start_two!='null'){
+                if ($contractDto->date_start_two != 'null') {
                     $contract->setDateStartTwo(new \DateTime($contractDto->date_start_two));
                     $contract->setDateEndTwo(new \DateTime($contractDto->date_end_two));
                 }
-                if($contractDto->date_start_three!='null'){
+                if ($contractDto->date_start_three != 'null') {
                     $contract->setDateStartThree(new \DateTime($contractDto->date_start_three));
                     $contract->setDateEndThree(new \DateTime($contractDto->date_end_three));
                 }
-
 
 
                 $entityManager = $this->getDoctrine()->getManager();

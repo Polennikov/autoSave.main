@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="152a63af-b809-4607-8b3f-a7ccd965a124" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/BooksFixture.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/ContractFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/RelationDriverFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/ContractDto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210523201957.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210523210927.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210523212930.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210523213702.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210524213027.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210526000011.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210526211724.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210527161926.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210527164216.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210529194553.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210531233620.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AutoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AutoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ContractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContractController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Auto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Auto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/RelationDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/RelationDriver.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +154,7 @@
       <workItem from="1622330352155" duration="6886000" />
       <workItem from="1622491312562" duration="2386000" />
       <workItem from="1622496552389" duration="20740000" />
+      <workItem from="1622662747575" duration="4063000" />
     </task>
     <servers />
   </component>
@@ -196,6 +184,11 @@
             <option name="methodName" value="index" />
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/ContractController.php</url>
+          <line>166</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

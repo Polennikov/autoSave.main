@@ -422,6 +422,7 @@ class AutoController extends AbstractController
         $entityManager  = $this->getDoctrine()->getManager();
         $autoRepository = $entityManager->getRepository(Auto::class);
         $auto = $autoRepository->findOneBy(['vin' => $vin]);
+        //var_dump($auto->getId());
         if($auto) {
             $entityManager->remove($auto);
             $entityManager->flush();

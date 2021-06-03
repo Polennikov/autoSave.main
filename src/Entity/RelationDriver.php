@@ -26,6 +26,7 @@ class RelationDriver
     /**
      * @ORM\ManyToOne(targetEntity=Contract::class, inversedBy="relationDrivers")
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $contracts;
 

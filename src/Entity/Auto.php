@@ -71,7 +71,7 @@ class Auto
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity=Contract::class, mappedBy="auto")
+     * @ORM\OneToMany(targetEntity=Contract::class, mappedBy="auto",orphanRemoval=true)
      */
     private $contracts;
 
