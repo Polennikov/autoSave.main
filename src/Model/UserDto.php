@@ -43,13 +43,13 @@ class UserDto
     /**
      * @OA\Property(
      *     format="string",
-     *     title="number_driver",
-     *     description="number_driver",
+     *     title="numberDriver",
+     *     description="numberDriver",
      * )
      *
      * @Serialization\Type("string")
      */
-    public $number_driver;
+    public $numberDriver;
 
     /**
      * @OA\Property(

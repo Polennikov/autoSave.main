@@ -24,6 +24,7 @@ class AutoFixtures extends Fixture
                 'model' => 'astra',
                 'year' => 2007,
                 'number' => 'о567от48',
+                'number_sts' => '12343213',
                 'color' => 'красный',
                 'power' => 110,
                 'mileage'=> 200000,
@@ -36,6 +37,7 @@ class AutoFixtures extends Fixture
                 'model' => 'civic',
                 'year' => 1996,
                 'number' => 'о001от48',
+                'number_sts' => '12343213',
                 'color' => 'белый',
                 'power' => 250,
                 'mileage'=> 250000,
@@ -48,6 +50,7 @@ class AutoFixtures extends Fixture
                 'model' => '3 Mps',
                 'year' => 2008,
                 'number' => 'о111от48',
+                'number_sts' => '12343213',
                 'color' => 'черный',
                 'power' => 260,
                 'mileage'=> 100000,
@@ -60,6 +63,7 @@ class AutoFixtures extends Fixture
                 'model' => 'supra',
                 'year' => 1994,
                 'number' => 'о007от48',
+                'number_sts' => '12343213',
                 'color' => 'серебро',
                 'power' => 470,
                 'mileage'=> 220000,
@@ -77,6 +81,7 @@ class AutoFixtures extends Fixture
             $newAuto->setModel($auto['model']);
             $newAuto->setYear($auto['year']);
             $newAuto->setNumber($auto['number']);
+            $newAuto->setNumberSts($auto['number_sts']);
             $newAuto->setColor($auto['color']);
             $newAuto->setPower($auto['power']);
             $newAuto->setCategory($auto['category']);

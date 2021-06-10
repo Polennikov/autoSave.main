@@ -18,6 +18,7 @@ nelmio_api_doc:
             - { alias: UserDto, type: App\Model\UserDto }
             - { alias: AutoDto, type: App\Model\AutoDto }
             - { alias: ContractDto, type: App\Model\ContractDto }
+            - { alias: DtpDto, type: App\Model\DtpDto }
     areas: # to filter documented areas
         path_patterns:
             - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

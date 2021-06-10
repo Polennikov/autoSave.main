@@ -151,7 +151,7 @@ class AuthController extends AbstractController
      *                  example="user_password"
      *              ),
      *              @OA\Property(
-     *                  property="number_driver",
+     *                  property="numberDriver",
      *                  type="string",
      *                  example="56743892"
      *              ),
@@ -166,27 +166,27 @@ class AuthController extends AbstractController
      *                  example="Polennikov"
      *              ),
      *              @OA\Property(
-     *                  property="mid_name",
+     *                  property="midName",
      *                  type="string",
      *                  example="Andreevich"
      *              ),
      *              @OA\Property(
-     *                  property="exp_driver",
+     *                  property="expDriver",
      *                  type="string",
      *                  example="3"
      *              ),
      *              @OA\Property(
-     *                  property="date_driver",
+     *                  property="dateDriver",
      *                  type="string",
      *                  example="06.06.1999"
      *              ),
      *              @OA\Property(
-     *                  property="adress_driver",
+     *                  property="adressDriver",
      *                  type="string",
      *                  example="adressDriver"
      *              ),
      *              @OA\Property(
-     *                  property="gender_driver",
+     *                  property="genderDriver",
      *                  type="string",
      *                  example="true"
      *              ),
@@ -267,7 +267,14 @@ class AuthController extends AbstractController
 
         // Десериализация запроса в Dto
         $userDto = $serializer->deserialize($request->getContent(), UserDto::class, 'json');
-
+        $userDto->KBM=$request->toArray()['KBM'];
+        $userDto->numberDriver=$request->toArray()['numberDriver'];
+        $userDto->midName=$request->toArray()['midName'];
+        $userDto->dateDriver=$request->toArray()['dateDriver'];
+        $userDto->adressDriver=$request->toArray()['adressDriver'];
+        $userDto->expDriver=$request->toArray()['expDriver'];
+        $userDto->genderDriver=$request->toArray()['genderDriver'];
+        //var_dump($userDto->KBM);
         // Проверка ошибок валидации
         $errors = $validator->validate($userDto);
         // Проверяем существует ли пользователь в системе

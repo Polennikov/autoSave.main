@@ -47,7 +47,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true, unique=true)
      */
-    private $number_driver;
+    private $numberDriver;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -99,12 +99,18 @@ class User implements UserInterface
      */
     private $relationDrivers;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Dtp::class, mappedBy="users")
+     */
+    private $dtps;
+
 
     public function __construct()
     {
         $this->autos = new ArrayCollection();
         $this->contracts = new ArrayCollection();
         $this->relationDrivers = new ArrayCollection();
+        $this->dtps = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -190,12 +196,12 @@ class User implements UserInterface
 
     public function getNumberDriver(): ?string
     {
-        return $this->number_driver;
+        return $this->numberDriver;
     }
 
-    public function setNumberDriver(string $number_driver): self
+    public function setNumberDriver(string $numberDriver): self
     {
-        $this->number_driver = $number_driver;
+        $this->numberDriver = $numberDriver;
 
         return $this;
     }
@@ -297,10 +303,11 @@ class User implements UserInterface
     }
 
     public static function fromDto(UserDto $userDto): self
-    {
+    {//var_dump($userDto->KBM);
         $user = new self();
         $user->setEmail($userDto->email);
         $user->setRoles(['ROLE_USER']);
+        $user->setNumberDriver($userDto->numberDriver);
         $user->setPassword($userDto->password);
         $user->setName($userDto->name);
         $user->setSurname($userDto->surname);
@@ -308,6 +315,7 @@ class User implements UserInterface
         $user->setDateDriver( new \DateTime($userDto->dateDriver));
         $user->setExpDriver($userDto->expDriver);
         $user->setGenderDriver($userDto->genderDriver);
+        $user->setAdressDriver($userDto->adressDriver);
         $user->setKBM($userDto->KBM);
 
 
@@ -368,6 +376,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($relationDriver->getUsers() === $this) {
                 $relationDriver->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Dtp[]
+     */
+    public function getDtps(): Collection
+    {
+        return $this->dtps;
+    }
+
+    public function addDtp(Dtp $dtp): self
+    {
+        if (!$this->dtps->contains($dtp)) {
+            $this->dtps[] = $dtp;
+            $dtp->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDtp(Dtp $dtp): self
+    {
+        if ($this->dtps->removeElement($dtp)) {
+            // set the owning side to null (unless already changed)
+            if ($dtp->getUsers() === $this) {
+                $dtp->setUsers(null);
             }
         }
 

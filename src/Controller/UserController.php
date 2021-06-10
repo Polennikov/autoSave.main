@@ -74,7 +74,7 @@ class UserController extends AbstractController
             $data = [
                 'username' => $user->getEmail(),
                 'roles' => $user->getRoles(),
-                'number_driver' => $user->getNumberDriver(),
+                'numberDriver' => $user->getNumberDriver(),
                 'name' => $user->getName(),
                 'surname' => $user->getSurname(),
                 'midName' => $user->getMidName(),

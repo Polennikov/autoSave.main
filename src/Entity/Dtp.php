@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DtpRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Model\DtpDto;
 
 /**
  * @ORM\Entity(repositoryClass=DtpRepository::class)
@@ -41,6 +42,16 @@ class Dtp
      * @ORM\Column(type="boolean")
      */
     private $initiator;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="dtps")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Auto::class, inversedBy="dtps")
+     */
+    private $autos;
 
     public function getId(): ?int
     {
@@ -105,5 +116,43 @@ class Dtp
         $this->initiator = $initiator;
 
         return $this;
+    }
+
+    public function getUsers(): ?User
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?User $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    public function getAutos(): ?Auto
+    {
+        return $this->autos;
+    }
+
+    public function setAutos(?Auto $autos): self
+    {
+        $this->autos = $autos;
+
+        return $this;
+    }
+
+    public static function fromDto(DtpDto $dtpDto, User $users, Auto $autos): self
+    {
+        $dtp= new self();
+        $dtp->setDateDtp(new \DateTime($dtpDto->date_dtp));
+        $dtp->setDescription($dtpDto->description);
+        $dtp->setAdressDtp($dtpDto->adress_dtp);
+        $dtp->setDegree($dtpDto->degree);
+        $dtp->setInitiator($dtpDto->initiator);
+        $dtp->setUsers($users);
+        $dtp->setAutos($autos);
+
+        return $dtp;
     }
 }

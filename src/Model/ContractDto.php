@@ -92,6 +92,18 @@ class ContractDto
     /**
      * @OA\Property(
      *     format="string",
+     *     title="trailer",
+     *     description="trailer",
+     *     example="1",
+     * )
+     *
+     * @Serialization\Type("string")
+     */
+    public $trailer;
+
+    /**
+     * @OA\Property(
+     *     format="string",
      *     title="status",
      *     description="status",
      *     example="1",
@@ -118,7 +130,7 @@ class ContractDto
      *     format="string",
      *     title="agent_id",
      *     description="agent_id",
-     *     example="5",
+     *     example="",
      * )
      *
      * @Serialization\Type("string")
@@ -131,7 +143,7 @@ class ContractDto
      *     format="string",
      *     title="driver_one",
      *     description="driver_one",
-     *     example="5",
+     *     example="12345",
      * )
      *
      * @Serialization\Type("string")
@@ -143,7 +155,7 @@ class ContractDto
      *     format="string",
      *     title="driver_two",
      *     description="driver_two",
-     *     example="1",
+     *     example="123456",
      * )
      *
      * @Serialization\Type("string")
@@ -155,7 +167,7 @@ class ContractDto
      *     format="string",
      *     title="driver_three",
      *     description="driver_three",
-     *     example="2",
+     *     example="",
      * )
      *
      * @Serialization\Type("string")
@@ -167,7 +179,7 @@ class ContractDto
      *     format="string",
      *     title="driver_four",
      *     description="driver_four",
-     *     example="5",
+     *     example="",
      * )
      *
      * @Serialization\Type("string")

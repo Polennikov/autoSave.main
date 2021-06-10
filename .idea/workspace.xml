@@ -2,14 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="152a63af-b809-4607-8b3f-a7ccd965a124" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/DtpFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/DtpDto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/ServicePy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210529194553.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210531233620.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210603021359.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210603021706.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AutoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AutoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BooksController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ContractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContractController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AutoFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AutoFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/BooksFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/BooksFixture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ContractFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ContractFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Auto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Auto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/RelationDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/RelationDriver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Dtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dtp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/AutoDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AutoDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ContractDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ContractDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/UserDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserDto.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +149,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../autoSave" />
+    <property name="last_opened_file_path" value="$USER_HOME$/project/study-on.billing" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -154,7 +169,12 @@
       <workItem from="1622330352155" duration="6886000" />
       <workItem from="1622491312562" duration="2386000" />
       <workItem from="1622496552389" duration="20740000" />
-      <workItem from="1622662747575" duration="4063000" />
+      <workItem from="1622662747575" duration="4789000" />
+      <workItem from="1622817062013" duration="10852000" />
+      <workItem from="1623085563054" duration="937000" />
+      <workItem from="1623088741485" duration="11000" />
+      <workItem from="1623089137428" duration="3000" />
+      <workItem from="1623107358119" duration="52712000" />
     </task>
     <servers />
   </component>
@@ -184,11 +204,6 @@
             <option name="methodName" value="index" />
           </properties>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Controller/ContractController.php</url>
-          <line>166</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

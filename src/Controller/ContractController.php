@@ -64,7 +64,7 @@ class ContractController extends AbstractController
         try {
             $entityManager  = $this->getDoctrine()->getManager();
             $userRepository = $entityManager->getRepository(User::class);
-            $user           = $userRepository->findOneBy(['number_driver' => $this->getUser()->getNumberDriver()]);
+            $user           = $userRepository->findOneBy(['numberDriver' => $this->getUser()->getNumberDriver()]);
 
             $relationRepository = $entityManager->getRepository(RelationDriver::class);
             $relationAll        = $relationRepository->findBy(['users' => $user]);
@@ -166,12 +166,13 @@ class ContractController extends AbstractController
      */
     public function new(Request $request, SerializerInterface $serializer, ValidatorInterface $validator): Response
     {
+
         // Десериализация запроса в Dto
         $contractDto = $serializer->deserialize($request->getContent(), ContractDto::class, 'json');
         // Проверка ошибок валидации
         $errors   = $validator->validate($contractDto);
         $response = new Response();
-//        var_dump($contractDto);
+
         if (count($errors) > 0) {
             // Формируем ответ сервера
             $data = [
@@ -196,7 +197,7 @@ class ContractController extends AbstractController
                 if ($contractDto->driver_one) {
                     // Создаем курс из Dto
                     $userRepository = $entityManager->getRepository(User::class);
-                    $user           = $userRepository->findOneBy(['number_driver' => $contractDto->driver_one]);
+                    $user           = $userRepository->findOneBy(['numberDriver' => $contractDto->driver_one]);
                     $relationDriver = RelationDriver::fromDto($user, $contract);
                     $entityManager  = $this->getDoctrine()->getManager();
                     // Сохраняем в базе данных
@@ -205,7 +206,7 @@ class ContractController extends AbstractController
                 }
                 if ($contractDto->driver_two) {
                     $userRepository = $entityManager->getRepository(User::class);
-                    $user           = $userRepository->findOneBy(['number_driver' => $contractDto->driver_two]);
+                    $user           = $userRepository->findOneBy(['numberDriver' => $contractDto->driver_two]);
                     if ($user) {
                         $relationDriver = RelationDriver::fromDto($user, $contract);
                         $entityManager  = $this->getDoctrine()->getManager();
@@ -216,7 +217,7 @@ class ContractController extends AbstractController
                 }
                 if ($contractDto->driver_three) {
                     $userRepository = $entityManager->getRepository(User::class);
-                    $user           = $userRepository->findOneBy(['number_driver' => $contractDto->driver_three]);
+                    $user           = $userRepository->findOneBy(['numberDriver' => $contractDto->driver_three]);
                     if ($user) {
                         $relationDriver = RelationDriver::fromDto($user, $contract);
                         $entityManager  = $this->getDoctrine()->getManager();
@@ -227,7 +228,7 @@ class ContractController extends AbstractController
                 }
                 if ($contractDto->driver_four) {
                     $userRepository = $entityManager->getRepository(User::class);
-                    $user           = $userRepository->findOneBy(['number_driver' => $contractDto->driver_four]);
+                    $user           = $userRepository->findOneBy(['numberDriver' => $contractDto->driver_four]);
                     if ($user) {
                         $relationDriver = RelationDriver::fromDto($user, $contract);
                         $entityManager  = $this->getDoctrine()->getManager();
@@ -308,7 +309,7 @@ class ContractController extends AbstractController
             $relationRepository = $entityManager->getRepository(RelationDriver::class);
             $relationAll        = $relationRepository->findBy(['contracts' => $contract]);
 
-            if ($contract->getStatus() == 2) {
+            if ($contract->getStatus() == 1) {
 
 
                 $result[] = [
@@ -404,6 +405,7 @@ class ContractController extends AbstractController
                 ];
             }
             $result     = [
+                'id'              => $contract->getId(),
                 'date_start'      => $contract->getDateStart(),
                 'date_end'        => $contract->getDateEnd(),
                 'amount'          => $contract->getAmount(),

@@ -102,6 +102,18 @@ class AutoDto
 
     /**
      * @OA\Property(
+     *     format="string",
+     *     title="Number_sts",
+     *     description="Number_sts",
+     *     example="12345673",
+     * )
+     *
+     * @Serialization\Type("string")
+     */
+    public $number_sts;
+
+    /**
+     * @OA\Property(
      *     format="integer",
      *     title="mileage",
      *     description="mileage",

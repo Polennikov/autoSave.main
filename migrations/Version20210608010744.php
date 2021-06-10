@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210603021359 extends AbstractMigration
+final class Version20210608010744 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -30,11 +30,11 @@ final class Version20210603021359 extends AbstractMigration
         $this->addSql('CREATE TABLE Users (id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, number_driver VARCHAR(255) DEFAULT NULL, surname VARCHAR(150) NOT NULL, name VARCHAR(150) NOT NULL, mid_name VARCHAR(150) NOT NULL, date_driver DATE NOT NULL, adress_driver VARCHAR(255) DEFAULT NULL, exp_driver INT DEFAULT NULL, gender_driver BOOLEAN DEFAULT NULL, kbm DOUBLE PRECISION DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_D5428AEDE7927C74 ON Users (email)');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_D5428AED84627FD8 ON Users (number_driver)');
-        $this->addSql('CREATE TABLE auto (id INT NOT NULL, users_id INT NOT NULL, vin VARCHAR(255) NOT NULL, marka VARCHAR(100) NOT NULL, model VARCHAR(100) NOT NULL, number VARCHAR(10) NOT NULL, color VARCHAR(100) NOT NULL, year INT NOT NULL, power INT NOT NULL, mileage INT DEFAULT NULL, category VARCHAR(5) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE auto (id INT NOT NULL, users_id INT NOT NULL, vin VARCHAR(255) NOT NULL, marka VARCHAR(100) NOT NULL, model VARCHAR(100) NOT NULL, number VARCHAR(10) NOT NULL, color VARCHAR(100) NOT NULL, year INT NOT NULL, power INT NOT NULL, mileage INT DEFAULT NULL, category VARCHAR(5) NOT NULL, number_sts VARCHAR(100) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_66BA25FAB1085141 ON auto (vin)');
         $this->addSql('CREATE INDEX IDX_66BA25FA67B3B43D ON auto (users_id)');
         $this->addSql('CREATE TABLE book_kt (id INT NOT NULL, region VARCHAR(255) NOT NULL, index DOUBLE PRECISION NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE TABLE contract (id INT NOT NULL, auto_id INT DEFAULT NULL, date_start DATE NOT NULL, date_end DATE NOT NULL, amount VARCHAR(100) NOT NULL, purpose VARCHAR(255) NOT NULL, status INT NOT NULL, agent_id VARCHAR(255) DEFAULT NULL, date_start_one DATE NOT NULL, date_end_one DATE NOT NULL, date_start_two DATE DEFAULT NULL, date_end_two DATE DEFAULT NULL, date_start_three DATE DEFAULT NULL, date_end_three DATE DEFAULT NULL, diagnostic_card VARCHAR(255) NOT NULL, non_limited BOOLEAN NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE contract (id INT NOT NULL, auto_id INT DEFAULT NULL, date_start DATE NOT NULL, date_end DATE NOT NULL, amount VARCHAR(100) NOT NULL, purpose VARCHAR(255) NOT NULL, status INT NOT NULL, agent_id VARCHAR(255) DEFAULT NULL, date_start_one DATE NOT NULL, date_end_one DATE NOT NULL, date_start_two DATE DEFAULT NULL, date_end_two DATE DEFAULT NULL, date_start_three DATE DEFAULT NULL, date_end_three DATE DEFAULT NULL, diagnostic_card VARCHAR(255) NOT NULL, non_limited BOOLEAN NOT NULL, trailer BOOLEAN NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_E98F28591D55B925 ON contract (auto_id)');
         $this->addSql('CREATE TABLE dtp (id INT NOT NULL, date_dtp DATE NOT NULL, description TEXT NOT NULL, adress_dtp VARCHAR(255) NOT NULL, degree VARCHAR(100) NOT NULL, initiator BOOLEAN NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE refresh_tokens (id INT NOT NULL, refresh_token VARCHAR(128) NOT NULL, username VARCHAR(255) NOT NULL, valid TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');

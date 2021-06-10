@@ -6,7 +6,9 @@ use App\Entity\Auto;
 use App\Entity\User;
 use App\Entity\BookKT;
 use App\Entity\RelationDriver;
-use App\Model\ContractDto;
+use App\Entity\Contract;
+use App\Entity\BookTB;
+use App\Entity\BookKBC;
 use App\Repository\AutoRepository;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,24 +24,20 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class BooksController extends AbstractController
 {
     /**
-     * @OA\Get(
-     *     path="/api/v1/books/kt",
-     *     tags={"Books"},
-     *     summary="Get index KT",
-     *     description="Get index KT",
-     *     operationId="books.kt",
+     * @OA\Post(
+     *     path="/api/v1/amount/{id}",
+     *     tags={"Amount"},
+     *     summary="Get Amount",
+     *     description="Get Amount",
+     *     operationId="amount",
      *
      *     @OA\Response(
      *      response=200,
      *       description="Success",
      *       @OA\JsonContent(
      *              @OA\Property(
-     *                  property="region",
+     *                  property="Amount",
      *                  type="string"
-     *              ),
-     *              @OA\Property(
-     *                  property="index",
-     *                  type="float"
      *              )
      *
      *          )
@@ -61,25 +59,111 @@ class BooksController extends AbstractController
      *          )
      *     )
      *)
-     * @Route("/books/kt", name="books_kt", methods={"GET"})
-     *
+     * @Route("/amount/{id}", name="amount", methods={"POST"})
      * @param   SerializerInterface  $serializer
-     *
      * @return Response
      */
-    public function index(SerializerInterface $serializer): Response
+    public function index(string $id,Request $request,SerializerInterface $serializer, ValidatorInterface $validator): Response
     {
-        $entityManager  = $this->getDoctrine()->getManager();
-        $Repository = $entityManager->getRepository(BookKT::class);
-        $index           = $Repository->findAll();
-
-
+        $entityManager = $this->getDoctrine()->getManager();
         $response = new Response();
-        // Устанавливаем статус ответа
-        $response->setStatusCode(Response::HTTP_OK);
-        // Устанавливаем содержание ответа
-        $response->setContent($serializer->serialize($index, 'json'));
-        // Устанавливаем заголовок
+
+            try {
+                $contractRepository = $entityManager->getRepository(Contract::class);
+                $contract           = $contractRepository->findOneBy(['id' => $id]);
+
+                $autoRepository = $entityManager->getRepository(Auto::class);
+                $auto           = $autoRepository->findOneBy(['vin' => $contract->getAuto()->getVin()]);
+
+                $bookTBRepository = $entityManager->getRepository(BookTB::class);
+                $indexTB           = $bookTBRepository->findOneBy(['category' => $auto->getCategory()]);
+
+                $date1 = new \DateTime();
+                $date2 = $auto->getUsers()->getDateDriver();
+                $age   = $date1->diff($date2);
+                $age   = $age->format("%Y");
+                $bookKBCRepository = $entityManager->getRepository(BookKBC::class);
+                $indexKBC1          = $bookKBCRepository->findAge( $age);
+
+                $indexKBC=$indexKBC1[0];
+                if($auto->getUsers()->getExpDriver()<1){
+                    $KBC=$indexKBC->getYearOneMin();
+                }
+                if($auto->getUsers()->getExpDriver()==1){
+                    $KBC=$indexKBC->getYearOne();
+                }
+                if($auto->getUsers()->getExpDriver()==2){
+                    $KBC=$indexKBC->getYearTwo();
+                }
+                if($auto->getUsers()->getExpDriver()<=4 &&
+                $auto->getUsers()->getExpDriver()>=3){
+                    $KBC=$indexKBC->getYearThree();
+                }
+                if($auto->getUsers()->getExpDriver()<=6 &&
+                    $auto->getUsers()->getExpDriver()>=5){
+                    $KBC=$indexKBC->getYearFive();
+                }
+                if($auto->getUsers()->getExpDriver()<=9 &&
+                    $auto->getUsers()->getExpDriver()>=7){
+                    $KBC=$indexKBC->getYearSeven();
+                }
+                if($auto->getUsers()->getExpDriver()<=14 &&
+                    $auto->getUsers()->getExpDriver()>=10){
+                    $KBC=$indexKBC->getYearTen();
+                }
+                if($auto->getUsers()->getExpDriver()>=15){
+                    $KBC=$indexKBC->getYearFivten();
+                }
+
+                if($contract->getNonLimited()==true){
+                    $lim=1.87;
+                }else{
+                    $lim=1;
+                }
+                if($contract->getTrailer()==true){
+                    $trailer=1.4;
+                }else{
+                    $trailer=1;
+                }
+//
+                if($auto->getPower()<50){
+                    $power=0.6;
+                }
+                if($auto->getPower()<=100 &&
+                    $auto->getPower()>=51){
+                    $power=1;
+                }
+                if($auto->getPower()<=120 &&
+                    $auto->getPower()>=101){
+                    $power=1.2;
+                }
+                if($auto->getPower()<=150 &&
+                    $auto->getPower()>=121){
+                    $power=1.4;
+                }
+                if($auto->getPower()>=151){
+                    $power=1.6;
+                }
+
+                //
+                $amount=$indexTB->getIndex()*$auto->getUsers()->getKBM()*$KBC*$lim*$trailer*$power;
+
+                // Формируем ответ сервера
+                $data = [
+                    'amount' => $amount,
+                ];
+                $response->setStatusCode(Response::HTTP_CREATED);
+            } catch (\Exception $e) {
+                // Формируем ответ сервера
+                $data = [
+                    'code'    => Response::HTTP_BAD_REQUEST,
+                    'message' => $e->getMessage(),
+                ];
+                $response->setStatusCode(Response::HTTP_CREATED);
+            }
+
+
+        $response->setContent($serializer->serialize($data, 'json'));
         $response->headers->add(['Content-Type' => 'application/json']);
 
         return $response;

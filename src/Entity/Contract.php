@@ -100,6 +100,11 @@ class Contract
      */
     private $non_limited;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $trailer;
+
     public function __construct()
     {
         $this->relationDrivers = new ArrayCollection();
@@ -288,6 +293,7 @@ class Contract
         $contract->setStatus($contractDto->status);
         $contract->setAuto($auto);
         $contract->setDiagnosticCard($contractDto->diagnostic_card);
+        $contract->setTrailer($contractDto->trailer);
         $contract->setNonLimited($contractDto->non_limited);
         $contract->setAgentId($contractDto->agent_id);
 
@@ -344,6 +350,18 @@ class Contract
     public function setNonLimited(bool $non_limited): self
     {
         $this->non_limited = $non_limited;
+
+        return $this;
+    }
+
+    public function getTrailer(): ?bool
+    {
+        return $this->trailer;
+    }
+
+    public function setTrailer(bool $trailer): self
+    {
+        $this->trailer = $trailer;
 
         return $this;
     }

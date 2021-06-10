@@ -23,7 +23,7 @@ class ContractFixtures extends Fixture
         $auto2       = $autoRepository->findOneBy(['vin' => '11112']);
         $auto3       = $autoRepository->findOneBy(['vin' => '11113']);
         $contractAll = [
-            //  Действующие
+            //  На рассмотрении
             [
                 'date_start'      => '2021-04-13 00:00:00',
                 'date_end'        => '2022-04-13 00:00:00',
@@ -37,6 +37,7 @@ class ContractFixtures extends Fixture
                 'diagnostic_card' => 'g7ny98yn9ve85',
                 'purpose'         => 'личное использование',
                 'non_limited'     => 1,
+                'trailer'     => 1,
                 'status'          => 1,
                 'agent_id'        => $user->getId(),
                 'auto'            => $auto1,
@@ -54,11 +55,12 @@ class ContractFixtures extends Fixture
                 'diagnostic_card' => 'g7ny98yn9ve85',
                 'purpose'         => 'личное использование',
                 'non_limited'     => 1,
+                'trailer'     => 0,
                 'status'          => 1,
                 'agent_id'        => $user->getId(),
                 'auto'            => $auto2,
             ],
-            // на рассмотрении
+            // Ожидают оплату
             [
                 'date_start'      => '2021-05-28 00:00:00',
                 'date_end'        => '2022-05-28 00:00:00',
@@ -72,10 +74,12 @@ class ContractFixtures extends Fixture
                 'diagnostic_card' => 'g7ny98yn9ve85',
                 'purpose'         => 'личное использование',
                 'non_limited'     => 0,
+                'trailer'     => 0,
                 'status'          => 2,
                 'agent_id'        => $user->getId(),
                 'auto'            => $auto3,
             ],
+            // Действующие
             [
                 'date_start'      => '2021-05-28 00:00:00',
                 'date_end'        => '2021-05-28 00:00:00',
@@ -89,7 +93,8 @@ class ContractFixtures extends Fixture
                 'diagnostic_card' => 'g7ny98yn9ve85',
                 'purpose'         => 'Коммерческое использование',
                 'non_limited'     => 1,
-                'status'          => 2,
+                'trailer'     => 1,
+                'status'          => 3,
                 'agent_id'        => $user->getId(),
                 'auto'            => $auto3,
             ],
@@ -107,7 +112,8 @@ class ContractFixtures extends Fixture
                 'diagnostic_card' => 'g7ny98yn9ve85',
                 'purpose'         => 'личное использование',
                 'non_limited'     => 0,
-                'status'          => 3,
+                'trailer'     => 0,
+                'status'          => 4,
                 'agent_id'        => $user->getId(),
                 'auto'            => $auto3,
             ],
@@ -124,7 +130,8 @@ class ContractFixtures extends Fixture
                 'diagnostic_card' => 'g7ny98yn9ve85',
                 'purpose'         => 'Коммерческое использование',
                 'non_limited'     => 1,
-                'status'          => 3,
+                'trailer'     => 1,
+                'status'          => 4,
                 'agent_id'        => $user->getId(),
                 'auto'            => $auto3,
             ],
@@ -155,6 +162,7 @@ class ContractFixtures extends Fixture
             $newContract->setPurpose($contract['purpose']);
             $newContract->setStatus($contract['status']);
             $newContract->setNonLimited($contract['non_limited']);
+            $newContract->setTrailer($contract['trailer']);
             $newContract->setAgentId($contract['agent_id']);
             $newContract->setAuto($contract['auto']);
 

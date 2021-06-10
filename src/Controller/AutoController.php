@@ -165,6 +165,7 @@ class AutoController extends AbstractController
                 // Создаем курс из Dto
                 $auto          = Auto::fromDto($autoDto, $this->getUser());
                 $auto->setMileage($autoDto->mileage);
+                $auto->setNumberSts($autoDto->number_sts);
                 $entityManager = $this->getDoctrine()->getManager();
                 // Сохраняем курс в базе данных
                 $entityManager->persist($auto);
@@ -173,6 +174,7 @@ class AutoController extends AbstractController
                 // Формируем ответ сервера
                 $data = [
                     'success' => true,
+                    'user'=>$this->getUser()->getId(),
                 ];
                 $response->setStatusCode(Response::HTTP_CREATED);
             } catch (\Exception $e) {

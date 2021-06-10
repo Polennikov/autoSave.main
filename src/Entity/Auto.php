@@ -75,9 +75,21 @@ class Auto
      */
     private $contracts;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $number_sts;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Dtp::class, mappedBy="autos")
+     */
+    private $dtps;
+
+
     public function __construct()
     {
         $this->contracts = new ArrayCollection();
+        $this->dtps = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -250,4 +262,47 @@ class Auto
 
         return $this;
     }
+
+    public function getNumberSts(): ?string
+    {
+        return $this->number_sts;
+    }
+
+    public function setNumberSts(string $number_sts): self
+    {
+        $this->number_sts = $number_sts;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Dtp[]
+     */
+    public function getDtps(): Collection
+    {
+        return $this->dtps;
+    }
+
+    public function addDtp(Dtp $dtp): self
+    {
+        if (!$this->dtps->contains($dtp)) {
+            $this->dtps[] = $dtp;
+            $dtp->setAutos($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDtp(Dtp $dtp): self
+    {
+        if ($this->dtps->removeElement($dtp)) {
+            // set the owning side to null (unless already changed)
+            if ($dtp->getAutos() === $this) {
+                $dtp->setAutos(null);
+            }
+        }
+
+        return $this;
+    }
+    
 }
