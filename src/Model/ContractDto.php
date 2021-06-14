@@ -137,6 +137,19 @@ class ContractDto
      */
     public $agent_id;
 
+    /**
+     * @OA\Property(
+     *     format="string",
+     *     title="marks",
+     *     description="marks",
+     *     example="Увеличенная цена полиса за счет показателей системы",
+     * )
+     *
+     * @Serialization\Type("string")
+     */
+    public $marks;
+
+
 
     /**
      * @OA\Property(

@@ -12,16 +12,18 @@ class ServicePy
      */
     public function getPredictionKNN(array $data)
     {
-        $cFile    = curl_file_create('files/data2.csv');
-        //$cFile    = curl_file_create('files/csv_file_dtp.csv');
-        //var_dump($data['age']);
-        $postData = array('dataFile' => $cFile,'age' => $data['age']);
+        $cFile     = curl_file_create('files/data3.csv');
+        $postData  = array('dataFile' => $cFile);
         $this->uri = 'service.auto-save.local:5000/api/v1/KNN/prediction';
 
-        if($data['age']){
-            $this->uri.="?" . "age" . "=" . $data['age'];
-        }
-
+        $this->uri .= "?"."age"."=".$data['age'].
+            '&gender='.$data['gender'].
+            '&exp='.$data['exp'].
+            '&marka='.$data['marka'].
+            '&year='.$data['year'].
+            '&engine='.$data['engine'].
+            '&kbm='.$data['kbm'];
+        
 
         // Создаем запрос в сервис
         $curl = curl_init($this->uri);

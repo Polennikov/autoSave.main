@@ -249,6 +249,7 @@ class AutoController extends AbstractController
                 'marka'    => $auto->getMarka(),
                 'model'    => $auto->getModel(),
                 'number'   => $auto->getNumber(),
+                'number_sts'=>$auto->getNumberSts(),
                 'color'    => $auto->getColor(),
                 'year'     => $auto->getYear(),
                 'power'    => $auto->getPower(),
@@ -377,7 +378,7 @@ class AutoController extends AbstractController
     }
 
     /**
-     * @OA\Get(
+     * @OA\Post(
      *     path="/api/v1/auto/{vin}/delete",
      *     tags={"Auto"},
      *     summary="Delete Auto",
@@ -412,10 +413,8 @@ class AutoController extends AbstractController
      *          )
      *     )
      *)
-     * @Route("/auto/{vin}/delete", name="auto_delete", methods={"GET"})
-     *
+     * @Route("/auto/{vin}/delete", name="auto_delete", methods={"POST"})
      * @param   SerializerInterface  $serializer
-     *
      * @return Response
      */
     public function delete(string $vin, SerializerInterface $serializer): Response

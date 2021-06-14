@@ -22,19 +22,18 @@ class BookKCRepository extends ServiceEntityRepository
     // /**
     //  * @return BookKC[] Returns an array of BookKC objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findIndex($value)
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
+         return $this->createQueryBuilder('b')
+            ->andWhere('b.period >= :val')
             ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+            ->setMaxResults(100)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?BookKC

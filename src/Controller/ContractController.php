@@ -83,6 +83,7 @@ class ContractController extends AbstractController
                     'status'           => $contract->getStatus(),
                     'auto_vin'         => $contract->getAuto()->getVin(),
                     'agent_id'         => $contract->getAgentId(),
+                    'marks'            => $contract->getMarks(),
                     'date_start_one'   => $contract->getDateStartOne(),
                     'date_end_one'     => $contract->getDateEndOne(),
                     'date_start_two'   => $contract->getDateStartTwo(),
@@ -190,6 +191,8 @@ class ContractController extends AbstractController
 
                 // Создаем курс из Dto
                 $contract      = Contract::fromDto($contractDto, $auto);
+                $contract->setMarks($contractDto->marks);
+                //var_dump($contract->getMarks());
                 $entityManager = $this->getDoctrine()->getManager();
                 // Сохраняем в базе данных
                 $entityManager->persist($contract);
@@ -415,6 +418,7 @@ class ContractController extends AbstractController
                 'status'          => $contract->getStatus(),
                 'auto_vin'        => $contract->getAuto()->getVin(),
                 'agent_id'        => $contract->getAgentId(),
+                'marks'           => $contract->getMarks(),
 
                 'drivers' => $usersContract,
 
@@ -495,7 +499,7 @@ class ContractController extends AbstractController
         $contractDto = $serializer->deserialize($request->getContent(), ContractDto::class, 'json');
         // Проверка ошибок валидации
         $errors = $validator->validate($contractDto);
-
+        //var_dump($contractDto->marks);
         $response = new Response();
 
         if (count($errors) > 0) {
@@ -526,6 +530,7 @@ class ContractController extends AbstractController
                 $contract->setDiagnosticCard($contractDto->diagnostic_card);
                 $contract->setPurpose($contractDto->purpose);
                 $contract->setNonLimited($contractDto->non_limited);
+                $contract->setMarks($contractDto->marks);
 
                 $contract->setAgentId($contractDto->agent_id);
                 /*  $contract->setDriverOne($contractDto->driver_one);
@@ -570,6 +575,75 @@ class ContractController extends AbstractController
         $response->headers->add(['Content-Type' => 'application/json']);
 
         return $response;
+    }
+
+    /**
+     * @OA\Post(
+     *     path="/api/v1/contract/{id}/delete",
+     *     tags={"Contract"},
+     *     summary="Delete Contract",
+     *     description="Delete Contract",
+     *     operationId="contract.delete",
+     *
+     *      @OA\Response(
+     *          response="201",
+     *          description="successful operation",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     *                  property="success",
+     *                  type="bool",
+     *                  example="true"
+     *              )
+     *          )
+     *     ),
+     *     @OA\Response(
+     *          response="401",
+     *          description="Invalid credentials",
+     *          @OA\JsonContent(
+     *              @OA\Property(
+     *                  property="code",
+     *                  type="string",
+     *                  example="401"
+     *              ),
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string",
+     *                  example="Invalid JWT Token"
+     *              )
+     *          )
+     *     )
+     *)
+     * @Route("/contract/{id}/delete", name="contract_delete", methods={"POST"})
+     * @param   SerializerInterface  $serializer
+     *
+     * @return Response
+     */
+    public function delete(string $id, SerializerInterface $serializer): Response
+    {
+        $response           = new Response();
+        $entityManager      = $this->getDoctrine()->getManager();
+        $contractRepository = $entityManager->getRepository(Contract::class);
+        $contract           = $contractRepository->findOneBy(['id' => $id]);
+        if ($contract) {
+            $entityManager->remove($contract);
+            $entityManager->flush();
+
+            $data = [
+                'success' => true,
+            ];
+            $response->setStatusCode(Response::HTTP_CREATED);
+        } else {
+            $data = [
+                'code'    => Response::HTTP_BAD_REQUEST,
+                'message' => 'Операция невозможна!',
+            ];
+            $response->setStatusCode(Response::HTTP_CREATED);
+        }
+        $response->setContent($serializer->serialize($data, 'json'));
+        $response->headers->add(['Content-Type' => 'application/json']);
+
+        return $response;
+
     }
 
 }

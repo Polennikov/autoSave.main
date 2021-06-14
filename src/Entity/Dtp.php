@@ -50,6 +50,7 @@ class Dtp
 
     /**
      * @ORM\ManyToOne(targetEntity=Auto::class, inversedBy="dtps")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $autos;
 

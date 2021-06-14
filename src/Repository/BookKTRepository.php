@@ -19,6 +19,17 @@ class BookKTRepository extends ServiceEntityRepository
         parent::__construct($registry, BookKT::class);
     }
 
+    public function findIndex($value)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.region = :val')
+            ->setParameter('val', $value)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return BookKT[] Returns an array of BookKT objects
     //  */

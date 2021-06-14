@@ -9,6 +9,7 @@ use App\Entity\RelationDriver;
 use App\Entity\Contract;
 use App\Entity\BookTB;
 use App\Entity\BookKBC;
+use App\Entity\BookKC;
 use App\Repository\AutoRepository;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -83,7 +84,7 @@ class BooksController extends AbstractController
                 $age   = $date1->diff($date2);
                 $age   = $age->format("%Y");
                 $bookKBCRepository = $entityManager->getRepository(BookKBC::class);
-                $indexKBC1          = $bookKBCRepository->findAge( $age);
+                $indexKBC1          = $bookKBCRepository->findIndex( $age);
 
                 $indexKBC=$indexKBC1[0];
                 if($auto->getUsers()->getExpDriver()<1){
@@ -114,18 +115,19 @@ class BooksController extends AbstractController
                 if($auto->getUsers()->getExpDriver()>=15){
                     $KBC=$indexKBC->getYearFivten();
                 }
-
+                //limited
                 if($contract->getNonLimited()==true){
                     $lim=1.87;
                 }else{
                     $lim=1;
-                }
+                            }
+                //trailer
                 if($contract->getTrailer()==true){
                     $trailer=1.4;
                 }else{
                     $trailer=1;
                 }
-//
+                //power
                 if($auto->getPower()<50){
                     $power=0.6;
                 }
@@ -144,9 +146,25 @@ class BooksController extends AbstractController
                 if($auto->getPower()>=151){
                     $power=1.6;
                 }
-
+//
+                $date1 = $contract->getDateStart();
+                $date2 = $contract->getDateEnd();
+                $date  = $date1->diff($date2);
+                $date   = $date->format("%m");
                 //
-                $amount=$indexTB->getIndex()*$auto->getUsers()->getKBM()*$KBC*$lim*$trailer*$power;
+                $bookKCRepository = $entityManager->getRepository(BookKC::class);
+                $indexKC          = $bookKCRepository->findIndex( $date);
+                $indexKC=$indexKC[0]->getIndex();
+                //
+                $bookKTRepository = $entityManager->getRepository(BookKT::class);
+                $indexKT          = $bookKTRepository->findIndex($auto->getUsers()->getAdressDriver());
+
+                if(count($indexKT)==0){
+                    $indexKT=2;
+                }
+
+                // Расчет страховки
+                $amount=$indexTB->getIndex()*$auto->getUsers()->getKBM()*$KBC*$lim*$trailer*$power*$indexKT*$indexKC;
 
                 // Формируем ответ сервера
                 $data = [

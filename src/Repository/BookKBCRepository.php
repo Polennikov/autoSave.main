@@ -23,7 +23,7 @@ class BookKBCRepository extends ServiceEntityRepository
     //  * @return BookKBC[] Returns an array of BookKBC objects
     //  */
 
-    public function findAge($value)
+    public function findIndex($value)
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.age >= :val')

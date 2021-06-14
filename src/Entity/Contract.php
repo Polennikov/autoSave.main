@@ -105,6 +105,11 @@ class Contract
      */
     private $trailer;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $marks;
+
     public function __construct()
     {
         $this->relationDrivers = new ArrayCollection();
@@ -362,6 +367,18 @@ class Contract
     public function setTrailer(bool $trailer): self
     {
         $this->trailer = $trailer;
+
+        return $this;
+    }
+
+    public function getMarks(): ?string
+    {
+        return $this->marks;
+    }
+
+    public function setMarks(?string $marks): self
+    {
+        $this->marks = $marks;
 
         return $this;
     }

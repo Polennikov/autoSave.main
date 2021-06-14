@@ -124,7 +124,7 @@ class DtpController extends AbstractController
 
     /**
      *
-     * @OA\Post(
+     * @OA\Get(
      *     path="/api/v1/file/create",
      *     tags={"Dtp"},
      *     summary="Create file Dtp",
@@ -164,7 +164,7 @@ class DtpController extends AbstractController
      *     )
      * )
      *
-     * @Route("/file/create", name="file", methods={"POST"})
+     * @Route("/file/create", name="file", methods={"GET"})
      * @param   Request              $request
      * @param   SerializerInterface  $serializer
      * @param   ValidatorInterface   $validator
@@ -362,7 +362,6 @@ class DtpController extends AbstractController
      * @param   Request              $request
      * @param   SerializerInterface  $serializer
      * @param   ValidatorInterface   $validator
-     *
      * @return Response
      */
     public function createPredict(
@@ -376,7 +375,6 @@ class DtpController extends AbstractController
             'age'    => $request->toArray()['age'],
             'gender' => $request->toArray()['gender'],
             'exp'    => $request->toArray()['exp'],
-            'region' => $request->toArray()['region'],
             'marka'  => $request->toArray()['marka'],
             'year'   => $request->toArray()['year'],
             'engine' => $request->toArray()['engine'],
