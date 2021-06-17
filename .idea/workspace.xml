@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="152a63af-b809-4607-8b3f-a7ccd965a124" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/files/data2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AutoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AutoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BooksController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ContractController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DtpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DtpController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Dtp.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dtp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ContractDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ContractDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookKBCRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookKBCRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookKCRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookKCRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookKTRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookKTRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ServicePy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ServicePy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/files/csv_file_dtp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/csv_file_dtp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Auto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Auto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -127,6 +132,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/vendor/gesdinet/jwt-refresh-token-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
     </include_path>
   </component>
   <component name="ProjectId" id="1swG9VM8rwOtZgpu1fGvs3UFj3g" />
@@ -165,7 +174,8 @@
       <workItem from="1623088741485" duration="11000" />
       <workItem from="1623089137428" duration="3000" />
       <workItem from="1623107358119" duration="52712000" />
-      <workItem from="1623684376405" duration="13990000" />
+      <workItem from="1623684376405" duration="16189000" />
+      <workItem from="1623883766593" duration="4172000" />
     </task>
     <servers />
   </component>

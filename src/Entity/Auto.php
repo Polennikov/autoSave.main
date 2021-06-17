@@ -85,6 +85,10 @@ class Auto
      */
     private $dtps;
 
+    public function __toString()
+    {
+        return (string)$this->vin;
+    }
 
     public function __construct()
     {

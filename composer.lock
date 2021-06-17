@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9eae18361daeb6d7381796056a1cacfa",
+    "content-hash": "0174dacc6e2e72826f575bcdf474da27",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1520,6 +1520,97 @@
                 "sql"
             ],
             "time": "2020-07-30T16:57:33+00:00"
+        },
+        {
+            "name": "easycorp/easyadmin-bundle",
+            "version": "v3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
+                "reference": "9672b09ce29c910fd74fe7769dd709c738ea43d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/9672b09ce29c910fd74fe7769dd709c738ea43d4",
+                "reference": "9672b09ce29c910fd74fe7769dd709c738ea43d4",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^2.13 || ^3.0",
+                "doctrine/dbal": "^2.10",
+                "doctrine/doctrine-bundle": "^1.12|^2.0",
+                "doctrine/orm": "^2.6,>=2.6.3",
+                "doctrine/persistence": "^1.3.3 || ^2.0",
+                "ext-json": "*",
+                "nikic/php-parser": "^4.3",
+                "php": ">=7.2.5",
+                "symfony/asset": "^4.4|^5.0",
+                "symfony/cache": "^4.4|^5.0",
+                "symfony/config": "^4.4|^5.0",
+                "symfony/dependency-injection": "^4.4|^5.0",
+                "symfony/deprecation-contracts": "^2.0",
+                "symfony/event-dispatcher": "^4.4|^5.0",
+                "symfony/filesystem": "^4.4|^5.0",
+                "symfony/form": "^4.4|^5.0",
+                "symfony/framework-bundle": "^4.4|^5.0",
+                "symfony/http-foundation": "^4.4|^5.0",
+                "symfony/http-kernel": "^4.4|^5.0",
+                "symfony/intl": "^4.4|^5.0",
+                "symfony/polyfill-php73": "^1.13",
+                "symfony/property-access": "^4.4|^5.0",
+                "symfony/security-bundle": "^4.4|^5.0",
+                "symfony/string": "^5.0",
+                "symfony/translation": "^4.4|^5.0",
+                "symfony/twig-bundle": "^4.4|^5.0",
+                "symfony/uid": "^5.1"
+            },
+            "conflict": {
+                "doctrine/dbal": "<2.10"
+            },
+            "require-dev": {
+                "dama/doctrine-test-bundle": "^6.4",
+                "doctrine/doctrine-fixtures-bundle": "^3.4",
+                "psr/log": "~1.0",
+                "symfony/browser-kit": "^4.4|^5.0",
+                "symfony/css-selector": "^4.4|^5.0",
+                "symfony/dom-crawler": "^4.4|^5.0",
+                "symfony/phpunit-bridge": "^4.4|^5.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EasyCorp\\Bundle\\EasyAdminBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Project Contributors",
+                    "homepage": "https://github.com/EasyCorp/EasyAdminBundle/graphs/contributors"
+                }
+            ],
+            "description": "Admin generator for Symfony applications",
+            "homepage": "https://github.com/EasyCorp/EasyAdminBundle",
+            "keywords": [
+                "admin",
+                "backend",
+                "generator"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/javiereguiluz",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-05-26T18:53:27+00:00"
         },
         {
             "name": "friendsofphp/proxy-manager-lts",
@@ -4725,6 +4816,10 @@
                 "scaffold",
                 "scaffolding"
             ],
+            "support": {
+                "issues": "https://github.com/symfony/maker-bundle/issues",
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.31.1"
+            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5432,6 +5527,82 @@
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
+            "name": "symfony/polyfill-uuid",
+            "version": "v1.23.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-uuid.git",
+                "reference": "9165effa2eb8a31bb3fa608df9d529920d21ddd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-uuid/zipball/9165effa2eb8a31bb3fa608df9d529920d21ddd9",
+                "reference": "9165effa2eb8a31bb3fa608df9d529920d21ddd9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "suggest": {
+                "ext-uuid": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Uuid\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for uuid functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "uuid"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-02-19T12:13:01+00:00"
+        },
+        {
             "name": "symfony/property-access",
             "version": "v5.2.4",
             "source": {
@@ -5748,16 +5919,16 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v5.2.9",
+            "version": "v5.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "c3502279a8e28e6586c1f0cce674f0d360236997"
+                "reference": "642a43f0c93752df9bab473b14192053c137583b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/c3502279a8e28e6586c1f0cce674f0d360236997",
-                "reference": "c3502279a8e28e6586c1f0cce674f0d360236997",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/642a43f0c93752df9bab473b14192053c137583b",
+                "reference": "642a43f0c93752df9bab473b14192053c137583b",
                 "shasum": ""
             },
             "require": {
@@ -5783,7 +5954,7 @@
                 "symfony/twig-bundle": "<4.4"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/annotations": "^1.10.4",
                 "symfony/asset": "^4.4|^5.0",
                 "symfony/browser-kit": "^4.4|^5.0",
                 "symfony/console": "^4.4|^5.0",
@@ -5828,7 +5999,7 @@
             "description": "Provides a tight integration of the Security component into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-bundle/tree/v5.2.9"
+                "source": "https://github.com/symfony/security-bundle/tree/v5.2.10"
             },
             "funding": [
                 {
@@ -5844,7 +6015,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-19T10:09:09+00:00"
+            "time": "2021-05-26T12:52:38+00:00"
         },
         {
             "name": "symfony/security-core",
@@ -6463,6 +6634,96 @@
             "time": "2021-05-10T14:56:10+00:00"
         },
         {
+            "name": "symfony/translation",
+            "version": "v5.2.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation.git",
+                "reference": "dc49cfb0d1d1bf6a9aaccccee570ef62e7b095c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/dc49cfb0d1d1bf6a9aaccccee570ef62e7b095c4",
+                "reference": "dc49cfb0d1d1bf6a9aaccccee570ef62e7b095c4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php80": "^1.15",
+                "symfony/translation-contracts": "^2.3"
+            },
+            "conflict": {
+                "symfony/config": "<4.4",
+                "symfony/dependency-injection": "<5.0",
+                "symfony/http-kernel": "<5.0",
+                "symfony/twig-bundle": "<5.0",
+                "symfony/yaml": "<4.4"
+            },
+            "provide": {
+                "symfony/translation-implementation": "2.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "^4.4|^5.0",
+                "symfony/console": "^4.4|^5.0",
+                "symfony/dependency-injection": "^5.0",
+                "symfony/finder": "^4.4|^5.0",
+                "symfony/http-kernel": "^5.0",
+                "symfony/intl": "^4.4|^5.0",
+                "symfony/service-contracts": "^1.1.2|^2",
+                "symfony/yaml": "^4.4|^5.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "To use logging capability in translator",
+                "symfony/config": "",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Resources/functions.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\Translation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides tools to internationalize your application",
+            "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-26T17:40:38+00:00"
+        },
+        {
             "name": "symfony/translation-contracts",
             "version": "v2.4.0",
             "source": {
@@ -6737,6 +6998,73 @@
                 }
             ],
             "time": "2021-05-17T19:35:40+00:00"
+        },
+        {
+            "name": "symfony/uid",
+            "version": "v5.2.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/uid.git",
+                "reference": "9e052369bf8292c0f536b457312c2d3cd8e0b850"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/uid/zipball/9e052369bf8292c0f536b457312c2d3cd8e0b850",
+                "reference": "9e052369bf8292c0f536b457312c2d3cd8e0b850",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-uuid": "^1.15"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Uid\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Pineau",
+                    "email": "lyrixx@lyrixx.info"
+                },
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides an object-oriented API to generate and represent UIDs",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "UID",
+                "uuid"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-26T17:40:38+00:00"
         },
         {
             "name": "symfony/validator",
@@ -7512,5 +7840,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
