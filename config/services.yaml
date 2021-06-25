@@ -34,6 +34,8 @@ services:
         arguments:
             - 0
             - true
+    App\Service\:
+        resource: '../src/Service/'
 
     Gesdinet\JWTRefreshTokenBundle\Service\RefreshToken:
         alias: "gesdinet.jwtrefreshtoken"

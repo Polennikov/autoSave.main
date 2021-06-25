@@ -27,11 +27,11 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        /*$this->denyAccessUnlessGranted(
+        $this->denyAccessUnlessGranted(
             'ROLE_SUPER_ADMIN',
             $this->getUser(),
             'У вас нет доступа к этой странице'
-        );*/
+        );
 
         $routeBuilder = $this->get(CrudUrlGenerator::class)->build();
         $url = $routeBuilder->setController(UserCrudController::class)->generateUrl();

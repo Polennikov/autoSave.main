@@ -2,16 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="152a63af-b809-4607-8b3f-a7ccd965a124" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/Client.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210608010744.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210608221025.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210609232752.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210610001335.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210610004044.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210614182241.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210614213440.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/files/csv_file_dtp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/public/files/csv_file_dtp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Auto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Auto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/agent/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/auto/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/books/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contract/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dtp/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/relation_driver/index.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +160,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../autoSave" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -175,7 +187,9 @@
       <workItem from="1623089137428" duration="3000" />
       <workItem from="1623107358119" duration="52712000" />
       <workItem from="1623684376405" duration="16189000" />
-      <workItem from="1623883766593" duration="4172000" />
+      <workItem from="1623883766593" duration="4730000" />
+      <workItem from="1623967188966" duration="609000" />
+      <workItem from="1624611162177" duration="7728000" />
     </task>
     <servers />
   </component>
@@ -205,6 +219,20 @@
             <option name="methodName" value="index" />
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/Service/Client.php</url>
+          <line>19</line>
+          <properties>
+            <option name="className" value="\App\Service\Client" />
+            <option name="methodName" value="auth" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/Admin/DashboardController.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
